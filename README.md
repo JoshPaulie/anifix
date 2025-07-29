@@ -48,7 +48,7 @@ The tool will rename all video files according to your specification.
 Instead of creating a spec file manually, you can use TVDB series data directly:
 
 ```bash
-uv run anifix --url-spec "https://www.thetvdb.com/series/your-anime-series"
+anifix --url-spec "https://www.thetvdb.com/series/your-anime-series"
 ```
 
 This will automatically scrape season and episode information from TVDB and apply it to your files.
@@ -58,7 +58,7 @@ This will automatically scrape season and episode information from TVDB and appl
 If you need to undo the renaming and restore original filenames:
 
 ```bash
-uv run anifix --restore
+anifix --restore
 ```
 
 This uses backup data created during the initial renaming process.
