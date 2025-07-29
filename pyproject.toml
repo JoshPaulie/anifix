@@ -1,0 +1,35 @@
+[project]
+name = "anifix"
+version = "0.1.0"
+description = "A tool for correcting anime episode titles in file names for proper Jellyfin sorting"
+readme = "README.md"
+authors = [
+    { name = "bex", email = "30572280+JoshPaulie@users.noreply.github.com" },
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff", "mypy", "pytest", "pytest-cov"]
+scraping = ["beautifulsoup4", "requests", "types-requests"]
+
+[project.scripts]
+anifix = "anifix.core:main"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["--strict-markers", "--strict-config", "--verbose"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
